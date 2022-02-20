@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base_ToolbarStyle">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:theme">@style/Base_ToolbarTheme</item>
+    </style>
+
+    <style name="Base_ToolbarStyle_White">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:theme">@style/Base_ToolbarTheme_White</item>
+    </style>
+
+    <style name="Base_ToolbarTheme">
+        <!-- Color used for the title of the Toolbar - as long as not overridden -->
+        <item name="android:textColorPrimary">@color/menu_toolbar</item>
+        <!-- Used to color back button and three dots -->
+        <item name="android:textColorSecondary">@color/menu_toolbar</item>
+    </style>
+
+    <style name="Base_ToolbarTheme_White">
+        <!-- Color used for the title of the Toolbar - as long as not overridden -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Used to color back button and three dots -->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="Search_View_Theme">
+        <item name="colorSecondary">@color/menu_toolbar</item>
+        <item name="searchBackground">@drawable/bg_search_toolbar</item>
+        <item name="android:inputType">text</item>
+        <item name="android:hint">@string/search_hint</item>
+        <item name="hintColor">@color/menu_toolbar</item>
+        <item name="backIconTint">@color/menu_toolbar</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconsTint">@color/menu_toolbar</item>
+    </style>
+
+    <style name="Search_View_Theme_White">
+        <item name="colorSecondary">@color/white</item>
+        <item name="searchBackground">@drawable/bg_search_toolbar</item>
+        <item name="android:inputType">text</item>
+        <item name="android:hint">@string/search_hint</item>
+        <item name="hintColor">@color/menu_toolbar</item>
+        <item name="backIconTint">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="iconsTint">@color/white</item>
+    </style>
+
+    <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+    </style>
+
+</resources>

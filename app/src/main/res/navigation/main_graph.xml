@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.apsmobile.whatsapp.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_navigation"
+            app:destination="@id/navigation"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/loginFragment">
+        <fragment
+            android:id="@+id/loginFragment"
+            android:name="com.apsmobile.whatsapp.ui.auth.LoginFragment"
+            android:label="fragment_login"
+            tools:layout="@layout/fragment_login" >
+            <action
+                android:id="@+id/action_loginFragment_to_registerFragment"
+                app:destination="@id/registerFragment" />
+            <action
+                android:id="@+id/action_loginFragment_to_recoverPasswordFragment"
+                app:destination="@id/recoverPasswordFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="com.apsmobile.whatsapp.ui.auth.RegisterFragment"
+            android:label="fragment_register"
+            tools:layout="@layout/fragment_register" />
+
+        <fragment
+            android:id="@+id/recoverPasswordFragment"
+            android:name="com.apsmobile.whatsapp.ui.auth.RecoverPasswordFragment"
+            android:label="fragment_recover_password"
+            tools:layout="@layout/fragment_recover_password" />
+        <action
+            android:id="@+id/action_global_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+
+    </navigation>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.apsmobile.whatsapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_navigation"
+            app:destination="@id/navigation"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_homeFragment_to_contactsFragment"
+            app:destination="@id/contactsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_statusListFragment"
+            app:destination="@id/statusListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.apsmobile.whatsapp.ui.contacts.ContactsFragment"
+        android:label="fragment_contacts"
+        tools:layout="@layout/fragment_contacts" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.apsmobile.whatsapp.ui.profile.ProfileFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/chatBetweenUsersFragment"
+        android:name="com.apsmobile.whatsapp.ui.chat.ChatBetweenUsersFragment"
+        android:label="fragment_chat_between_users"
+        tools:layout="@layout/fragment_chat_between_users" >
+        <argument
+            android:name="user"
+            app:argType="com.apsmobile.whatsapp.model.User" />
+        <action
+            android:id="@+id/action_chatBetweenUsersFragment_to_chatSendImageFragment"
+            app:destination="@id/chatSendImageFragment" />
+        <action
+            android:id="@+id/action_chatBetweenUsersFragment_to_shareSelectedContactFragment"
+            app:destination="@id/shareSelectedContactFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_chatBetweenUsersFragment"
+        app:destination="@id/chatBetweenUsersFragment" />
+    <fragment
+        android:id="@+id/chatSendImageFragment"
+        android:name="com.apsmobile.whatsapp.ui.chat.ChatSendImageFragment"
+        android:label="fragment_chat_send_image"
+        tools:layout="@layout/fragment_chat_send_image" >
+        <argument
+            android:name="urlImage"
+            app:argType="string" />
+        <argument
+            android:name="talk"
+            app:argType="com.apsmobile.whatsapp.model.Talk" />
+    </fragment>
+    <fragment
+        android:id="@+id/statusListFragment"
+        android:name="com.apsmobile.whatsapp.ui.status.StatusListFragment"
+        android:label="fragment_status_list"
+        tools:layout="@layout/fragment_status_list" />
+    <fragment
+        android:id="@+id/statusAddFragment"
+        android:name="com.apsmobile.whatsapp.ui.status.StatusAddFragment"
+        android:label="fragment_status_add"
+        tools:layout="@layout/fragment_status_add" >
+        <argument
+            android:name="urlImage"
+            app:argType="string" />
+    </fragment><action android:id="@+id/action_global_statusAddFragment" app:destination="@id/statusAddFragment"/>
+    <fragment
+        android:id="@+id/viewStatusFragment"
+        android:name="com.apsmobile.whatsapp.ui.status.ViewStatusFragment"
+        android:label="fragment_view_status"
+        tools:layout="@layout/fragment_view_status" >
+        <argument
+            android:name="user"
+            app:argType="com.apsmobile.whatsapp.model.User" />
+    </fragment>
+    <action android:id="@+id/action_global_viewStatusFragment" app:destination="@id/viewStatusFragment" />
+    <fragment
+        android:id="@+id/shareSelectedContactFragment"
+        android:name="com.apsmobile.whatsapp.ui.contacts.ShareSelectedContactFragment"
+        android:label="fragment_share_selected_contact"
+        tools:layout="@layout/fragment_share_selected_contact" >
+        <argument
+            android:name="idUserSelected"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
